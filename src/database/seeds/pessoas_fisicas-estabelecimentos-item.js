@@ -8,6 +8,12 @@ export const seed = async knex => {
       nome: 'Michel Silva',
       apelido: 'mickey',
       email: 'michelsilva@gmail.com'
+    },
+    {
+      uuid: '152f35d9-15d9-49c5-974a-68a1946070bd',
+      nome: 'João Moura',
+      apelido: 'Mourão',
+      email: 'Mourão@gmail.com'
     }
   ])
   await knex('estabelecimentos').del()

@@ -1,6 +1,6 @@
 export const seed = async (knex, Promise) => {
-  await knex('categorias_produto').del()
-  await knex('categorias_produto').insert([
+  await knex('categorias_produtos').del()
+  await knex('categorias_produtos').insert([
     { id: 1, nome: 'lanche' },
     { id: 2, nome: 'pizza' },
     { id: 3, nome: 'roupa' },
