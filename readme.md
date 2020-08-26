@@ -5,7 +5,7 @@
 ## Installation
 
 1. Install [Node.JS](https://nodejs.org/en/) LTS version
-2. Install PostgreSQL
+2. Install [PostgreSQL](https://www.thegeekstuff.com/2009/04/linux-postgresql-install-and-configure-from-source/) Source
 3. Clone this repository and enter on the respective folder
 4. Install dependencies running: `yarn` or `npm install`
 
