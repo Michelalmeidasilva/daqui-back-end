@@ -26,7 +26,7 @@ export const up = knex =>
       table.increments('id').primary()
       table.string('nome').notNullable()
     })
-    .createTable('proprietarios', table => {
+    .createTable('pessoas_fisicas', table => {
       table.uuid('uuid').primary()
       table.string('nome').notNullable()
       table.string('apelido')
@@ -41,11 +41,11 @@ export const up = knex =>
       table.string('cidade').notNullable()
       table.string('coordenadas')
       table.string('descricao')
-      table.uuid('proprietario_uuid')
+      table.uuid('pessoa_fisica_uuid')
       table
-        .foreign('proprietario_uuid')
+        .foreign('pessoa_fisica_uuid')
         .references('uuid')
-        .inTable('proprietarios')
+        .inTable('pessoas_fisicas')
         .onDelete('CASCADE')
       table.integer('categoria_estabelecimento_id').unsigned
       table
@@ -67,6 +67,9 @@ export const up = knex =>
         .references('id')
         .inTable('categorias_produto')
         .onDelete('CASCADE')
+      table
+        .specificType('coordinates', 'POINT')
+        .defaultTo(knex.raw('POINT (0.0, 0.0)'))
       table.string('nome').notNullable()
       table.float('preco').notNullable()
       table.string('descricao').notNullable()
@@ -78,6 +81,6 @@ export const down = knex =>
     .dropTableIfExists('roles')
     .dropTableIfExists('items')
     .dropTableIfExists('estabelecimentos')
-    .dropTableIfExists('proprietarios')
+    .dropTableIfExists('pessoas_fisicas')
     .dropTableIfExists('categorias_estabelecimento')
     .dropTableIfExists('categorias_produto')
