@@ -39,6 +39,7 @@ export const up = knex =>
       table.string('telefone').notNullable()
       table.string('horario').notNullable()
       table.string('cidade').notNullable()
+      table.string('coordenadas')
       table.string('descricao')
       table.uuid('proprietario_uuid')
       table
