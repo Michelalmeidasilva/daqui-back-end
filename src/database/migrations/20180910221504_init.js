@@ -18,11 +18,15 @@ export const up = knex =>
         .onDelete('CASCADE')
       table.timestamps(true, true)
     })
-    .createTable('categorias_estabelecimento', table => {
+    .createTable('categorias_estabelecimentos', table => {
       table.increments('id').primary()
       table.string('nome').notNullable()
     })
-    .createTable('categorias_produto', table => {
+    .createTable('categorias_produtos', table => {
+      table.increments('id').primary()
+      table.string('nome').notNullable()
+    })
+    .createTable('categorias_servicos', table => {
       table.increments('id').primary()
       table.string('nome').notNullable()
     })
@@ -51,7 +55,7 @@ export const up = knex =>
       table
         .foreign('categoria_estabelecimento_id')
         .references('id')
-        .inTable('categorias_estabelecimento')
+        .inTable('categorias_estabelecimentos')
         .onDelete('CASCADE')
     })
     .createTable('items', table => {
@@ -65,7 +69,7 @@ export const up = knex =>
       table
         .foreign('categoria_produto_id')
         .references('id')
-        .inTable('categorias_produto')
+        .inTable('categorias_produtos')
         .onDelete('CASCADE')
       table
         .specificType('coordinates', 'POINT')
@@ -75,12 +79,34 @@ export const up = knex =>
       table.string('descricao').notNullable()
     })
 
+    .createTable('servicos', table => {
+      table.uuid('uuid').primary()
+      table.string('telefone')
+      table.string('nome').notNullable()
+      table.string('horario_atendimento')
+      table.string('descricao')
+      table.integer('categoria_servico_id')
+      table
+        .foreign('categoria_servico_id')
+        .references('id')
+        .inTable('categorias_servicos')
+        .onDelete('CASCADE')
+      table.uuid('pessoa_fisica_uuid')
+      table
+        .foreign('pessoa_fisica_uuid')
+        .references('uuid')
+        .inTable('pessoas_fisicas')
+        .onDelete('CASCADE')
+    })
+
 export const down = knex =>
   knex.schema
     .dropTableIfExists('users')
     .dropTableIfExists('roles')
     .dropTableIfExists('items')
     .dropTableIfExists('estabelecimentos')
+    .dropTableIfExists('servicos')
     .dropTableIfExists('pessoas_fisicas')
-    .dropTableIfExists('categorias_estabelecimento')
-    .dropTableIfExists('categorias_produto')
+    .dropTableIfExists('categorias_estabelecimentos')
+    .dropTableIfExists('categorias_produtos')
+    .dropTableIfExists('categorias_servicos')
