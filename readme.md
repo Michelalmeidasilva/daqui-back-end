@@ -29,8 +29,7 @@
 1. Run tests: `yarn test`
 
 
-## This project was based on the boilerplate NAVE 
-
+## This project was based on the back-boilerplate created by Nave Team 
 [Boilerplate nave.rs](https://github.com/naveteam/back-boilerplate)
 
 ## Directory Structure
