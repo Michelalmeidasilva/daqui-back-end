@@ -32,6 +32,12 @@
 ## This project was based on the back-boilerplate created by Nave Team 
 [Boilerplate nave.rs](https://github.com/naveteam/back-boilerplate)
 
+
+## API DOCUMENTATION
+
+[acess documentation](https://miro.com/app/board/o9J_kqT8X0I=/?moveToWidget=3074457349537106490&cot=10)
+
+
 ## Directory Structure
 
 ```
