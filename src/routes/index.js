@@ -6,10 +6,12 @@ import categoriasProdutos from './categorias-produtos'
 import categoriasServicos from './categorias-servicos'
 import categoriasEstabelecimentos from './categorias-estabelecimentos'
 import servicos from './servicos-router'
+import estabelecimentos from './estabelecimentos-router'
 
 const router = new Router()
 const api = new Router()
 
+api.use(estabelecimentos)
 api.use(servicos)
 api.use(categoriasEstabelecimentos)
 api.use(categoriasServicos)
