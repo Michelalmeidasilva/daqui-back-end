@@ -13,6 +13,15 @@ export const seed = async knex => {
       role_id: 1,
       created_at: new Date(),
       updated_at: new Date()
+    },
+    {
+      id: uuidv4(),
+      name: 'Daqui Team',
+      email: 'falegrupodaqui@gmail.com',
+      password: await encryptPassword('aaermjjg'),
+      role_id: 1,
+      created_at: new Date(),
+      updated_at: new Date()
     }
   ])
 }
