@@ -1,11 +1,11 @@
 {
-  "name": "api-boilerplate",
+  "name": "daqui-api",
   "version": "1.0.0",
-  "description": "Node API Boilerplate by Nave (nave.rs).",
+  "description": "DAQUI API, with Boilerplate created by Nave (nave.rs).",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/naveteam/back-boilerplate.git"
+    "url": "https://github.com/Michelalmeidasilva/daqui-back-end.git"
   },
   "engines": {
     "node": ">=10.14.0"
